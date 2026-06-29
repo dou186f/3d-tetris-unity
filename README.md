@@ -20,7 +20,3 @@ Open the project in Unity 2021+ and press Play.
 ## Tech Stack
 - **Engine:** Unity
 - **Language:** C#
-
-## Author
-**Doğu Erbaş**  
-doguerbass@gmail.com
