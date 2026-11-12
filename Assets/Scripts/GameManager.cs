@@ -101,7 +101,10 @@ public class GameManager : MonoBehaviour
             startPanel.SetActive(false);
         }
 
-        StartBackgroundMusic();
+        if (musicAudioSource != null)
+        {
+            musicAudioSource.UnPause();
+        }
 
         if (!hasSpawnedFirstPiece)
         {
@@ -118,7 +121,7 @@ public class GameManager : MonoBehaviour
 
     public float GetCurrentFallInterval()
     {
-        int speedStep = score / scorePerSpeedStep;
+        int speedStep = score / Mathf.Max(1, scorePerSpeedStep);
 
         float currentInterval = startFallInterval - speedStep * speedIncreasePerStep;
 

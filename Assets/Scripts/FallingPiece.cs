@@ -50,7 +50,11 @@ public class FallingPiece : MonoBehaviour
         }
 
         HandleInput();
-        HandleFalling();
+
+        if (!isLocked)
+        {
+            HandleFalling();
+        }
     }
 
     private void HandleInput()
@@ -144,9 +148,11 @@ public class FallingPiece : MonoBehaviour
     {
         fallTimer += Time.deltaTime;
 
-        if (fallTimer >= fallInterval)
+        float interval = Mathf.Max(0.01f, fallInterval);
+
+        while (!isLocked && fallTimer >= interval)
         {
-            fallTimer = 0f;
+            fallTimer -= interval;
             TryFallOneStep();
         }
     }
@@ -198,6 +204,7 @@ public class FallingPiece : MonoBehaviour
         }
 
         isLocked = true;
+        gameManager.PlayLockSound();
 
         DestroyGhostBlocks();
 
