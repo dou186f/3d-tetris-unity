@@ -3,24 +3,36 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity WebGL Player | 3dtetris</title>
-    <link rel="shortcut icon" href="TemplateData/favicon.ico">
-    <link rel="stylesheet" href="TemplateData/style.css">
+    <title>3D Tetris</title>
+    <style>
+      body { padding: 0; margin: 0; background: #000; color: #ddd; }
+      #unity-container { position: absolute; }
+      #unity-container.unity-desktop { left: 50%; top: 50%; transform: translate(-50%, -50%); }
+      #unity-container.unity-mobile { position: fixed; width: 100%; height: 100%; }
+      #unity-canvas { display: block; background: #231f20; }
+      .unity-mobile #unity-canvas { width: 100%; height: 100%; }
+      #unity-loading-bar { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); display: none; }
+      #unity-progress-bar-empty { width: 140px; height: 8px; background: #333; }
+      #unity-progress-bar-full { width: 0%; height: 100%; background: #ddd; }
+      #unity-footer { position: relative; height: 38px; font: 16px Arial, sans-serif; }
+      .unity-mobile #unity-footer { display: none; }
+      #unity-build-title { float: left; line-height: 38px; }
+      #unity-fullscreen-button { float: right; height: 38px; padding: 0 10px; border: 0; background: #222; color: #ddd; cursor: pointer; }
+      #unity-warning { position: absolute; left: 50%; top: 5%; transform: translate(-50%); background: white; color: black; padding: 10px; display: none; }
+    </style>
   </head>
   <body>
     <div id="unity-container" class="unity-desktop">
       <canvas id="unity-canvas" width=450 height=800 tabindex="-1"></canvas>
       <div id="unity-loading-bar">
-        <div id="unity-logo"></div>
         <div id="unity-progress-bar-empty">
           <div id="unity-progress-bar-full"></div>
         </div>
       </div>
       <div id="unity-warning"> </div>
       <div id="unity-footer">
-        <div id="unity-webgl-logo"></div>
-        <div id="unity-fullscreen-button"></div>
-        <div id="unity-build-title">3dtetris</div>
+        <button id="unity-fullscreen-button" type="button">Fullscreen</button>
+        <div id="unity-build-title">3D Tetris</div>
       </div>
     </div>
     <script>

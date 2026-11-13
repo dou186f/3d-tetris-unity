@@ -1,6 +1,8 @@
 # 3D Tetris
 A 3D Tetris-style game built in Unity with C#. Place blocks on a three-dimensional board, complete horizontal layers, and keep the spawn area clear as the game speeds up.
 
+[Play in your browser](https://dou186f.github.io/3d-tetris-unity/)
+
 ## Features
 - **Grid-based movement** — Piece movement, rotation, hard drop, and ghost preview
 - **Layer clearing** — Full layers clear with score tracking
